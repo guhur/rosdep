@@ -96,9 +96,9 @@ def get_sources_list_dirs(source_list_dir):
 def get_sources_list_dir():
     # base of where we read config files from
     # TODO: windows
-    if 0:
-        # we can't use etc/ros because environment config does not carry over under sudo
-        etc_ros = rospkg.get_etc_ros_dir()
+    if SOURCE_PATH_ENV in os.environ:
+        etc_ros = os.environ[SOURCE_PATH_ENV]
+#        etc_ros = rospkg.get_etc_ros_dir()
     else:
         etc_ros = '/etc/ros'
     # compute default system wide sources directory
